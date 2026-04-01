@@ -98,7 +98,17 @@ PRPs are versioned like software. When mentor behavior needs to change:
 
 ---
 
-## Official Docs RAG Pipeline Overview
+## 11. Automated Prompt Evaluation Testing
+
+As we build and refine features, every PRP and persona behavior must be automatically verified to prevent regressions:
+
+- **Persona Consistency Checks:** Automated unit tests will send standard baseline inputs to the API and evaluate if ANNA/BHAI respond in their correct persona and language without mixing strings.
+- **Accuracy Verification:** RAG injection responses will be evaluated using LLM-as-a-judge tests to ensure they accurately cite the provided documentation.
+- **Toxicity and Guardrail Tests:** CI/CD pipelines will run adversarial prompts to ensure safety constraints (no prompt injection, no competitor promotion) hold up across updates.
+
+---
+
+## 12. Official Docs RAG Pipeline Overview
 
 ```
 User asks a question

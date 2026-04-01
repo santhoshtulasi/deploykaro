@@ -197,7 +197,18 @@ Mentor maps every concept across clouds on demand:
 
 ---
 
-## 10. Out of Scope — Permanently
+## 10. Automated Testing Strategy
+
+To ensure high quality and prevent regressions as we rapidly build features, DeployKaro will implement a robust automated testing pipeline:
+
+- **Unit Testing:** All core utility functions, hooks, and AI prompt assembly logic will be tested using Jest / Vitest to ensure logic correctness.
+- **Integration Testing:** API boundaries (Frontend to Content API, Frontend to Mentor API) will be tested automatically to ensure data contracts are respected.
+- **End-to-End (E2E) Testing:** Critical user journeys (e.g., signing up, asking the AI Mentor a question, viewing diagrams) will be tested via Playwright to simulate real user interactions in the browser.
+- **CI/CD Integration:** Tests will run automatically on every GitHub Pull Request. Features must pass all tests before they can be merged and deployed.
+
+---
+
+## 11. Out of Scope — Permanently
 
 - Browser sandbox / terminal platform (operational complexity, not our focus)
 - Hosted cloud practice environments (cost and security burden)

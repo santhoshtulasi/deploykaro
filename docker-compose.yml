@@ -1,0 +1,132 @@
+version: '3.8'
+
+services:
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 1: POSTGRESQL (The Filing Cabinet)
+  # ─────────────────────────────────────────────
+  postgres:
+    image: pgvector/pgvector:pg16   # This is the filing cabinet with the special AI vector lockbox built-in
+    container_name: deploykaro-postgres # The name tag we put on the cabinet
+    restart: unless-stopped         # If the computer breaks/restarts, make sure the cabinet opens again
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}       # Reading the username from our .env.local file
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Reading the password from our .env.local file
+      POSTGRES_DB: ${POSTGRES_DB}           # The default notebook inside the cabinet
+    ports:
+      - "5432:5432"                 # Connect port 5432 on our laptop straight to port 5432 on the cabinet
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Keep our loose papers permanently saved on our hard drive
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 2: REDIS (The Sticky Note Board)
+  # ─────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine           # Notice the "alpine" here! Redis is so simple it CAN use the skinny software.
+    container_name: deploykaro-redis # Name tag
+    restart: unless-stopped         # Turn it on if computer restarts
+    ports:
+      - "6379:6379"                 # Connect port 6379 on our laptop
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 3: MINIO (The Storage Warehouse)
+  # ─────────────────────────────────────────────
+  minio:
+    image: minio/minio:latest
+    container_name: deploykaro-minio
+    restart: unless-stopped
+    ports:
+      - "9000:9000"                 # Door 1: The App's delivery tunnel (API)
+      - "9001:9001"                 # Door 2: Your visual Control Room
+    environment:
+      MINIO_ROOT_USER: ${S3_ACCESS_KEY}      # The warehouse manager's username
+      MINIO_ROOT_PASSWORD: ${S3_SECRET_KEY}  # The warehouse manager's password
+    command: server /data --console-address ":9001" # Command to turn on the lights + control room
+    volumes:
+      - minio_data:/data            # Keeps the photos safe on your laptop
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 4: KEYCLOAK (The Security Guard)
+  # ─────────────────────────────────────────────
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0.5
+    container_name: deploykaro-keycloak
+    restart: unless-stopped
+    ports:
+      - "8080:8080"                 # The door to the Security Office
+    environment:
+      KEYCLOAK_ADMIN: admin         # The master username for YOU
+      KEYCLOAK_ADMIN_PASSWORD: admin # The master password for YOU
+    command: start-dev              # "Start up immediately in local dev mode without extra red-tape"
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 5: NGINX (The Traffic Cop)
+  # ─────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine             # The skinny, fast version of the Traffic Cop
+    container_name: deploykaro-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"                     # The Main Entrance to DeployKaro
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 6: PROMETHEUS (The Doctor / Heart Monitor)
+  # ─────────────────────────────────────────────
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: deploykaro-prometheus
+    restart: unless-stopped
+    ports:
+      - "9090:9090"
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 7: GRAFANA (The TV Dashboard screens)
+  # ─────────────────────────────────────────────
+  grafana:
+    image: grafana/grafana:latest
+    container_name: deploykaro-grafana
+    restart: unless-stopped
+    ports:
+      - "4000:3000"                 # Note: Grafana runs on 3000 inside its room, but we open Door 4000 on our laptop
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 8 & 9: LOKI AND PROMTAIL (The Diary Team)
+  # ─────────────────────────────────────────────
+  loki:
+    image: grafana/loki:latest
+    container_name: deploykaro-loki
+    restart: unless-stopped
+    ports:
+      - "3100:3100"                 # The vault for our log files
+      
+  promtail:
+    image: grafana/promtail:latest
+    container_name: deploykaro-promtail
+    restart: unless-stopped
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 10: JAEGER (The Private Investigator)
+  # ─────────────────────────────────────────────
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: deploykaro-jaeger
+    restart: unless-stopped
+    ports:
+      - "16686:16686"               # The physical map room for our PI
+      - "4318:4318"                 # The fast-track tunnel where Python/Node.js sends their traces
+
+  # ─────────────────────────────────────────────
+  # BACKING SERVICE 11: ALERTMANAGER (The Fire Alarm)
+  # ─────────────────────────────────────────────
+  alertmanager:
+    image: prom/alertmanager:latest
+    container_name: deploykaro-alertmanager
+    restart: unless-stopped
+    ports:
+      - "9093:9093"                 # The speaker control panel
+
+volumes:
+  postgres_data:
+  minio_data:

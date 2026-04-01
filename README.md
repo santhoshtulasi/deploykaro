@@ -64,9 +64,12 @@ deploykaro-docs/
 │   ├── UX-learning-flow.md        → In-track learning flow
 │   └── UX-mentor-chat-flow.md     → Mentor interaction flow
 │
-└── 10-MONETIZATION/               → Business Model
-    ├── MONETIZATION-tiers.md      → Free/Pro/Teams/Enterprise
-    └── MONETIZATION-unit-econ.md  → Unit economics and projections
+├── 10-MONETIZATION/               → Business Model
+│   ├── MONETIZATION-tiers.md      → Free/Pro/Teams/Enterprise
+│   └── MONETIZATION-unit-econ.md  → Unit economics and projections
+│
+└── 11-LOCAL-DEV/                  → Local Development Setup (Zero AWS)
+    └── LOCAL-DEV-prerequisites.md → Tools, ports, env vars, open-source replacements
 ```
 
 ---
