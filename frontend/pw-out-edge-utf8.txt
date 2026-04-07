@@ -1,0 +1,126 @@
+﻿
+Running 6 tests using 6 workers
+
+  Γ£ÿ  4 [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona (3.9s)
+  Γ£ÿ  3 [chromium] ΓÇ║ tests\career-mentor.spec.ts:24:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session (3.8s)
+  Γ£ÿ  6 [chromium] ΓÇ║ tests\mentor-chat.spec.ts:4:7 ΓÇ║ Mentor Chat Interface ΓÇ║ should send a message and receive a mocked AI response (3.8s)
+  Γ£ÿ  2 [chromium] ΓÇ║ tests\career-mentor.spec.ts:54:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap (3.8s)
+  Γ£ÿ  5 [chromium] ΓÇ║ tests\career-mentor.spec.ts:9:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should switch mentor modes and update UI context (3.6s)
+  Γ£ÿ  1 [chromium] ΓÇ║ tests\career-mentor.spec.ts:37:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session (4.8s)
+
+
+  1) [chromium] ΓÇ║ tests\career-mentor.spec.ts:9:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should switch mentor modes and update UI context 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     // Navigate to the mentor page
+    > 6 |     await page.goto('http://localhost:3000/mentor');
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should switch mentor modes and update UI context', async ({ page }) => {
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:6:16
+
+    Error Context: test-results\career-mentor-Career-Exper-2d715-modes-and-update-UI-context-chromium\error-context.md
+
+  2) [chromium] ΓÇ║ tests\career-mentor.spec.ts:24:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     // Navigate to the mentor page
+    > 6 |     await page.goto('http://localhost:3000/mentor');
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should switch mentor modes and update UI context', async ({ page }) => {
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:6:16
+
+    Error Context: test-results\career-mentor-Career-Exper-392c2-er-a-Mock-Interview-session-chromium\error-context.md
+
+  3) [chromium] ΓÇ║ tests\career-mentor.spec.ts:37:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     // Navigate to the mentor page
+    > 6 |     await page.goto('http://localhost:3000/mentor');
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should switch mentor modes and update UI context', async ({ page }) => {
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:6:16
+
+    Error Context: test-results\career-mentor-Career-Exper-e2918--a-Voice-Read-Aloud-session-chromium\error-context.md
+
+  4) [chromium] ΓÇ║ tests\career-mentor.spec.ts:54:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+      4 |   test.beforeEach(async ({ page }) => {
+      5 |     // Navigate to the mentor page
+    > 6 |     await page.goto('http://localhost:3000/mentor');
+        |                ^
+      7 |   });
+      8 |
+      9 |   test('should switch mentor modes and update UI context', async ({ page }) => {
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:6:16
+
+    Error Context: test-results\career-mentor-Career-Exper-2631f-h-the-Certification-Roadmap-chromium\error-context.md
+
+  5) [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+       5 |   test('Verify Direct-Trigger and Guru (Kannada) Persona', async ({ page }) => {
+       6 |     // 1. Load the Mentor Page
+    >  7 |     await page.goto('http://localhost:3000/mentor');
+         |                ^
+       8 |     await page.waitForLoadState('networkidle');
+       9 |
+      10 |     // 2. Select Guru (Kannada) from the Header Dropdown
+        at D:\deploykaro\frontend\tests\e2e\verify_production_direct_trigger.spec.ts:7:16
+
+    Error Context: test-results\e2e-verify_production_dire-387c7-er-and-Guru-Kannada-Persona-chromium\error-context.md
+
+  6) [chromium] ΓÇ║ tests\mentor-chat.spec.ts:4:7 ΓÇ║ Mentor Chat Interface ΓÇ║ should send a message and receive a mocked AI response 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:3000/mentor
+    Call log:
+    [2m  - navigating to "http://localhost:3000/mentor", waiting until "load"[22m
+
+
+      4 |   test('should send a message and receive a mocked AI response', async ({ page }) => {
+      5 |     // Navigate to the mentor page
+    > 6 |     await page.goto('http://localhost:3000/mentor');
+        |                ^
+      7 |
+      8 |     // Select the chat input
+      9 |     const chatInput = page.locator('textarea[placeholder*="Ask ANNA"]');
+        at D:\deploykaro\frontend\tests\mentor-chat.spec.ts:6:16
+
+    Error Context: test-results\mentor-chat-Mentor-Chat-In-a9fcf-eceive-a-mocked-AI-response-chromium\error-context.md
+
+  6 failed
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:9:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should switch mentor modes and update UI context 
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:24:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session 
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:37:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session 
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:54:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap 
+    [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona 
+    [chromium] ΓÇ║ tests\mentor-chat.spec.ts:4:7 ΓÇ║ Mentor Chat Interface ΓÇ║ should send a message and receive a mocked AI response 

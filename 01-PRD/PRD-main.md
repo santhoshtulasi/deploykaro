@@ -162,12 +162,15 @@ DeployKaro is that someone. Available 24/7. In your language. At every level.
 
 1. **24/7 Mentor:** Answers every doubt, error, and question — no waiting, no forums
 2. **Vernacular-Native:** ANNA speaks Madras Tamil slang, BHAI speaks Bangalore Kannada slang
-3. **NVIDIA-Powered:** Sub-2 second responses, context-aware, personalized to experience level
-4. **Never Stuck:** Mentor auto-detects confusion and intervenes within 2 minutes
-5. **Docs-Grounded:** Every answer cites official documentation — never guesses
-6. **Multi-Cloud:** AWS, GCP, Azure, On-Prem — one mentor, all clouds
-7. **Career Bridge:** Resume → mock interviews → human expert sessions → job ready
-8. **Analogy-First Always:** Every concept explained to a 10-year-old first, then scaled up
+3. **Human-Grade Vernacular Voice (TTS):** Premium 'Read Aloud' functionality with automatic language detection (TA, KA, TE, HI) and 1.1x pitch tuning for friendly, natural delivery.
+4. **The Expert Sibling Protocol:** Mentor follows a "High-Speed Sibling" persona—supportive, relatable, and expert.
+5. **NVIDIA-Powered:** Sub-2 second responses, context-aware, personalized to experience level
+6. **Never Stuck:** Mentor auto-detects confusion and intervenes within 2 minutes
+7. **Docs-Grounded:** Every answer cites official documentation — never guesses
+8. **Multi-Cloud:** AWS, GCP, Azure, On-Prem — one mentor, all clouds
+9. **Career Bridge:** Resume → mock interviews → human expert sessions → job ready
+10. **Analogy-First Always:** Every concept explained to a 10-year-old first, then scaled up
+11. **Shared Experience Analogies:** Concepts mapped to daily life (Tiffins, Cricket, Chai) to ensure zero-friction understanding.
 
 ---
 

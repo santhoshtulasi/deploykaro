@@ -1,0 +1,107 @@
+﻿node.exe : D:\deploykaro\service
+s\content\node_modules\ts-node\s
+rc\index.ts:859
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "
+C:\nvm4w\nodejs/node_modules/npm
+/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          : N 
+   otSpecified: (D:\deploykaro  
+  \s...rc\index.ts:859:String   
+ ) [], RemoteException
+    + FullyQualifiedErrorId : N 
+   ativeCommandError
+ 
+    return new 
+TSError(diagnosticText, 
+diagnosticCodes, diagnostics);
+           ^
+TSError: Γ¿» Unable to compile 
+TypeScript:
+prisma/seed.ts(29,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(36,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(51,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(58,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(97,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(111,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(135,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+prisma/seed.ts(149,19): error 
+TS2353: Object literal may only 
+specify known properties, and 
+'examDomains' does not exist in 
+type 'ConceptUncheckedCreateWith
+outModuleInput'.
+
+    at createTSError (D:\deployk
+aro\services\content\node_module
+s\ts-node\src\index.ts:859:12)
+    at reportTSError (D:\deployk
+aro\services\content\node_module
+s\ts-node\src\index.ts:863:19)
+    at getOutput (D:\deploykaro\
+services\content\node_modules\ts
+-node\src\index.ts:1077:36)
+    at Object.compile (D:\deploy
+karo\services\content\node_modul
+es\ts-node\src\index.ts:1433:41)
+    at Module.m._compile (D:\dep
+loykaro\services\content\node_mo
+dules\ts-node\src\index.ts:1617:
+30)
+    at node:internal/modules/cjs
+/loader:1943:10
+    at Object.require.extensions
+.<computed> [as .ts] (D:\deployk
+aro\services\content\node_module
+s\ts-node\src\index.ts:1621:12)
+    at Module.load (node:interna
+l/modules/cjs/loader:1533:32)
+    at Module._load (node:intern
+al/modules/cjs/loader:1335:12)
+    at wrapModuleLoad (node:inte
+rnal/modules/cjs/loader:255:19) 
+{
+  diagnosticCodes: [
+    2353, 2353, 2353,
+    2353, 2353, 2353,
+    2353, 2353
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "realm": "deploykaro",
+  "enabled": true,
+  "registrationAllowed": true,
+  "clients": [
+    {
+      "clientId": "deploykaro-app",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "local-dev-secret",
+      "redirectUris": [
+        "http://localhost:3000/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "publicClient": false,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true
+    }
+  ]
+}

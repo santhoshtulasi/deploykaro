@@ -3,25 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b;
+  --foreground: #fafafa;
+  --accent: #10b981;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
-body {
-  color: var(--foreground);
+html, body {
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* ── Custom Scrollbar ─────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #27272a; border-radius: 99px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+/* ── Keyframe Animations ──────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(16,185,129,0.1); }
+  50%       { box-shadow: 0 0 40px rgba(16,185,129,0.35); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes anim-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(16,185,129,0.2); }
+  50%       { box-shadow: 0 0 18px rgba(16,185,129,0.6); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float        { animation: float 5s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 2.5s ease-in-out infinite; }
+.animate-marquee      { animation: marquee 30s linear infinite; }
+.animate-spin-slow    { animation: spin-slow 20s linear infinite; }
+.anim-glow            { animation: anim-glow 2s ease-in-out infinite; }
+.animate-fade-up      { animation: fade-up 0.6s ease-out both; }
+
+/* ── Gradient text utility ─────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #34d399 50%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
 }
+

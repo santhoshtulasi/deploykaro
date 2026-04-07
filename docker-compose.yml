@@ -56,8 +56,9 @@ services:
     environment:
       KEYCLOAK_ADMIN: admin         # The master username for YOU
       KEYCLOAK_ADMIN_PASSWORD: admin # The master password for YOU
-    command: start-dev              # "Start up immediately in local dev mode without extra red-tape"
-
+    command: start-dev --import-realm
+    volumes:
+      - ./infrastructure/keycloak-realm-export.json:/opt/keycloak/data/import/realm.json
   # ─────────────────────────────────────────────
   # BACKING SERVICE 5: NGINX (The Traffic Cop)
   # ─────────────────────────────────────────────

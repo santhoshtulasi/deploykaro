@@ -1,0 +1,113 @@
+﻿
+Running 6 tests using 6 workers
+
+  Γ£ô  2 [chromium] ΓÇ║ tests\career-mentor.spec.ts:19:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should switch mentor modes and update UI context (1.8s)
+  Γ£ô  6 [chromium] ΓÇ║ tests\mentor-chat.spec.ts:4:7 ΓÇ║ Mentor Chat Interface ΓÇ║ should send a message and receive a mocked AI response (2.4s)
+  Γ£ÿ  1 [chromium] ΓÇ║ tests\career-mentor.spec.ts:34:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session (2.3s)
+  Γ£ÿ  4 [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona (7.7s)
+  Γ£ÿ  5 [chromium] ΓÇ║ tests\career-mentor.spec.ts:47:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session (7.1s)
+  Γ£ÿ  3 [chromium] ΓÇ║ tests\career-mentor.spec.ts:64:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap (30.1s)
+
+
+  1) [chromium] ΓÇ║ tests\career-mentor.spec.ts:34:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText(/I'm ready for a Mock Interview/i)
+    Expected: visible
+    Error: strict mode violation: getByText(/I'm ready for a Mock Interview/i) resolved to 2 elements:
+        1) <span>I'm ready for a Mock Interview! Please start the ΓÇª</span> aka getByText('I\'m ready for a Mock Interview! Please start the session.')
+        2) <span>[MOCK MODE ACTIVE] I'm ready for a Mock InterviewΓÇª</span> aka getByText('[MOCK MODE ACTIVE] I\'m ready')
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByText(/I'm ready for a Mock Interview/i)[22m
+
+
+      38 |     
+      39 |     // 2. Verify initialization message in chat
+    > 40 |     await expect(page.getByText(/I'm ready for a Mock Interview/i)).toBeVisible();
+         |                                                                     ^
+      41 |     
+      42 |     // 3. Verify AI starts the session in English (Mock Mode)
+      43 |     // Note: We use regex because the response might vary, but in mock mode it contains "MOCK"
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:40:69
+
+    Error Context: test-results\career-mentor-Career-Exper-392c2-er-a-Mock-Interview-session-chromium\error-context.md
+
+  2) [chromium] ΓÇ║ tests\career-mentor.spec.ts:47:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: getByText(/Speaking.../i)
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for getByText(/Speaking.../i)[22m
+
+
+      59 |     
+      60 |     // 4. Verify 'Speaking...' state
+    > 61 |     await expect(page.getByText(/Speaking.../i)).toBeVisible({ timeout: 5000 });
+         |                                                  ^
+      62 |   });
+      63 |
+      64 |   test('should interact with the Certification Roadmap', async ({ page }) => {
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:61:50
+
+    Error Context: test-results\career-mentor-Career-Exper-e2918--a-Voice-Read-Aloud-session-chromium\error-context.md
+
+  3) [chromium] ΓÇ║ tests\career-mentor.spec.ts:64:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: /Roadmap/i })[22m
+
+
+      64 |   test('should interact with the Certification Roadmap', async ({ page }) => {
+      65 |     // 1. Open Roadmap Drawer
+    > 66 |     await page.getByRole('button', { name: /Roadmap/i }).click();
+         |                                                          ^
+      67 |     
+      68 |     // 2. Verify the Roadmap drawer is open
+      69 |     await expect(page.getByText(/Your Roadmap to/i)).toBeVisible();
+        at D:\deploykaro\frontend\tests\career-mentor.spec.ts:66:58
+
+    Error Context: test-results\career-mentor-Career-Exper-2631f-h-the-Certification-Roadmap-chromium\error-context.md
+
+  4) [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeVisible[2m([22m[2m)[22m failed
+
+    Locator: locator('.VisualEngine')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+    [2m  - Expect "toBeVisible" with timeout 5000ms[22m
+    [2m  - waiting for locator('.VisualEngine')[22m
+
+
+      35 |     // 7. ASSERT: Direct Visual Trigger (Side Panel should open instantly)
+      36 |     const visualEngine = page.locator('.VisualEngine'); // Adjusted selector based on component
+    > 37 |     await expect(visualEngine).toBeVisible({ timeout: 5000 });
+         |                                ^
+      38 |
+      39 |     // 8. ASSERT: No redundant message sent to chat
+      40 |     // If the trigger was successful, message count should remain the same (plus the AI response)
+        at D:\deploykaro\frontend\tests\e2e\verify_production_direct_trigger.spec.ts:37:32
+
+    Error Context: test-results\e2e-verify_production_dire-387c7-er-and-Guru-Kannada-Persona-chromium\error-context.md
+
+  4 failed
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:34:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Mock Interview session 
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:47:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should trigger a Voice Read Aloud session 
+    [chromium] ΓÇ║ tests\career-mentor.spec.ts:64:7 ΓÇ║ Career Expert Mentor E2E ΓÇ║ should interact with the Certification Roadmap 
+    [chromium] ΓÇ║ tests\e2e\verify_production_direct_trigger.spec.ts:5:7 ΓÇ║ DeployKaro Mentor AI - Production Hardening Verification ΓÇ║ Verify Direct-Trigger and Guru (Kannada) Persona 
+  2 passed (32.4s)

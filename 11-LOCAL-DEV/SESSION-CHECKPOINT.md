@@ -1,34 +1,38 @@
-# Session Checkpoint — April 1, 2026
+# Session Checkpoint: The "Fleet Admiral" Milestone (2026-04-02)
 
-## Exactly Where We Stopped 🛑
-We have successfully built the architecture for DeployKaro. 
+## 🏁 Session Overview
+Today, we transformed **DeployKaro** into a premium, immersive DevOps learning platform. We completed the entire Track 1 curriculum, launched the foundation for Track 2, and implemented the high-fidelity "Orchestration" engine.
 
-The last thing we accomplished was fixing the deep Python API integration so it can correctly call the `openai` SDK to talk to NVIDIA NIM. The **Next.js Frontend Chat Interface** is actively built and connected to this new Python API endpoint. 
+## 🚀 Key Features Implemented
 
-**Tomorrow's very first task**: Open the browser to `localhost:3000/mentor`, type "Who are you?" into the UI, and verify the frontend correctly streams the response from the Python server!
+### 🍱 The Visual Learning Roadmap (Drawer)
+- Built a premium **TrackRoadmap.tsx** side-drawer.
+- Visualizes the entire curriculum syllabus with "Mastered", "Active", and "Locked" node states.
+- Integrated a **Track Selector** dropdown to switch between "My First Deploy" and "Orchestrating the Fleet".
 
----
+### 🏎️ Visual Engine Expansion (High-Fidelity)
+1.  **Docker Tiffin Box** (`vis_docker_tiffin`): 3-tier stainless steel metallic animation for container isolation.
+2.  **Cloud Electricity Grid** (`vis_cloud_electricity`): Interactive power-grid analogy for Pay-as-you-go billing and horizontal scaling.
+3.  **Dockerfile Recipe** (`vis_dockerfile`): Step-by-step assembly of the Tiffin box as the Dockerfile "cooks" in real-time.
+4.  **The Fleet Admiral** (`vis_k8s_fleet`): Kubernetes orchestration visual with an Admiral ship managing Node ships and Musical Command waves.
 
-## How To Resume Tomorrow 🚀
+### 📊 Progress & Persistence System
+- **Real-Time Sync**: Integrated a `[PROGRESS:id]` tag protocol. When the AI tags a concept, the UI updates instantly.
+- **Mastery Celebration**: 100% completion of Track 1 triggers a **Track Master** graduation event (Confetti + Emerald Badge).
+- **Expert Mode (Architect)**: Syncs `expertMode` Boolean to the database; persists across sessions and refreshes.
 
-When you return to this project, simply execute these 3 steps to turn the whole city back on:
+### 🤖 AI Intelligence Upgrades
+- Added **Certification Focus** logic to the AI persona (AWS SAA relevance).
+- Injected **Track 2: Orchestration** context into the AI system prompt.
 
-### 1. Turn on the Backend Infrastructure
-Open terminal inside `D:\deploykaro` and run:
-```bash
-docker compose --env-file .env.local up -d
-```
+## 🛠️ Technical Debt & Infrastructure
+- Fixed TypeScript errors in `onboarding.ts` and `progress.ts`.
+- Implemented `upsert` logic in the Progress router to prevent mastery duplication and cap at 100%.
 
-### 2. Turn on the Frontend Server
-Open a new terminal inside `D:\deploykaro\frontend` and run:
-```bash
-npm run dev
-```
+## ⏭️ Next Session Objectives
+1.  **Deploy Global Leaderboard**: Implement the "Hall of Fame" and XP point award system.
+2.  **Certification Readiness Dashboard**: Build the circular gauge for Exam Readiness.
+3.  **Multilingual Expansion**: Populate Tamil/Kannada content for Track 2.
 
-### 3. Turn on the AI Mentor Brain
-Open a new terminal inside `D:\deploykaro\services\mentor-ai` and run:
-```bash
-python -m uvicorn app.main:app --reload --port 8000
-```
-
-*(Note: The Content API on port 3001 is not strictly needed for the mentor chat, but you can turn it on with `npm run dev` in `services/content` anytime!)*
+**Status: Ready for Shutdown 💤**
+**Current Mastery: Track 1 [100%], Track 2 [0%]**

@@ -2,16 +2,19 @@ from pydantic import BaseModel
 from typing import List, Optional
 
 class ChatContext(BaseModel):
-    cloud_context: str = "AWS"            # Target cloud (AWS, GCP, Azure, On-Prem)
-    architect_mode: bool = False          # Whether the user wants architect-level deep dives
-    certification: Optional[str] = None   # Which cert they are aiming for (e.g., "AWS SAA-C03")
+    cloud_context: str = "AWS"
+    architect_mode: bool = False
+    completed_concepts: List[str] = []
+    active_track_slug: str = "my-first-deploy"
+    certification: Optional[str] = "AWS Cloud Practitioner"
+    mentor_mode: str = "learning" # learning, certification, interview
 
-class Message(BaseModel):
-    role: str       # "user" or "assistant"
-    content: str    # The actual message text
+class ChatMessage(BaseModel):
+    role: str
+    content: str
 
 class ChatRequest(BaseModel):
-    persona: str = "anna"                 # anna, bhai, didi, buddy
-    message: str                          # The current user question
-    history: List[Message] = []           # Array of previous messages for memory
-    context: ChatContext                  # User's current learning context
+    message: str
+    persona: Optional[str] = "buddy-english"
+    history: List[ChatMessage] = []
+    context: ChatContext

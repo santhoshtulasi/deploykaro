@@ -1,0 +1,318 @@
+﻿
+> frontend@0.1.0 lint
+> next lint
+
+node.exe : 
+At line:1 char:1
++ & "C:\nvm4w\nodejs/node.exe" "
+C:\nvm4w\nodejs/node_modules/npm
+/bin/np ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~
+    + CategoryInfo          : N 
+   otSpecified: (:String) [],   
+  RemoteException
+    + FullyQualifiedErrorId : N 
+   ativeCommandError
+ 
+./src/app/api/auth/[...nextauth]
+/route.ts
+21:19  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+./src/app/mentor/page.tsx
+34:29  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+48:46  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+49:46  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+86:51  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+90:73  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+300:66  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+300:114  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+
+./src/app/page.tsx
+10:38  Error: 'BarChart3' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+11:15  Error: 'Shield' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+11:23  Error: 'Coffee' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+11:31  Error: 'User' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+
+./src/components/mentor/CareerDa
+shboard.tsx
+18:5  Error: 'xp' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+
+./src/components/mentor/ChatInpu
+t.tsx
+32:42  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+32:79  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+52:36  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+./src/components/mentor/ChatMess
+age.tsx
+84:9  Error: 'displayContent' 
+is never reassigned. Use 
+'const' instead.  prefer-const
+
+./src/components/mentor/Progress
+Indicator.tsx
+4:10  Error: 'CheckCircle2' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+
+./src/components/mentor/VisualEn
+gine.tsx
+4:24  Error: 'Minimize2' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+4:53  Error: 'Globe' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+
+./src/components/onboarding/Step
+Experience.tsx
+9:18  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+10:9  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+./src/components/onboarding/Step
+Persona.tsx
+9:18  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+10:9  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+./src/components/onboarding/Step
+Success.tsx
+10:9  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+17:29  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+51:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'authStatus'. 
+Either include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+./src/components/onboarding/Step
+Welcome.tsx
+8:18  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+9:9  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+./src/components/profile/Certifi
+cationReadiness.tsx
+4:10  Error: 'Zap' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+
+./src/components/profile/Leaderb
+oard.tsx
+19:31  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+73:33  Warning: Using `<img>` 
+could result in slower LCP and 
+higher bandwidth. Consider 
+using `<Image />` from 
+`next/image` to automatically 
+optimize images. This may incur 
+additional usage or cost from 
+your provider. See: https://next
+js.org/docs/messages/no-img-elem
+ent  @next/next/no-img-element
+
+./src/components/visuals/CloudRo
+settaStone.tsx
+5:17  Error: 'Server' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+
+./src/components/visuals/VisualC
+loud.tsx
+4:21  Error: 'Factory' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+14:10  Error: 'isGridActive' is 
+assigned a value but never 
+used.  @typescript-eslint/no-unu
+sed-vars
+14:24  Error: 'setIsGridActive' 
+is assigned a value but never 
+used.  @typescript-eslint/no-unu
+sed-vars
+147:43  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+
+./src/components/visuals/VisualD
+ockerfile.tsx
+4:26  Error: 'Terminal' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+4:63  Error: 'ChevronRight' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+5:20  Error: 'useEffect' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+
+./src/components/visuals/VisualF
+leet.tsx
+4:38  Error: 'Wifi' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+4:44  Error: 'Send' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+4:60  Error: 'Terminal' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+170:58  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, `&rsquo;`.  
+react/no-unescaped-entities
+172:51  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+172:67  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+
+./src/components/visuals/VisualI
+nternet.tsx
+6:34  Error: 'isMuted' is 
+assigned a value but never 
+used.  @typescript-eslint/no-unu
+sed-vars
+
+./src/components/visuals/VisualK
+8sHealing.tsx
+28:10  Error: 'healingPodId' is 
+assigned a value but never 
+used.  @typescript-eslint/no-unu
+sed-vars
+108:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 'crashPod'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+./src/components/visuals/VisualK
+8sNodes.tsx
+4:51  Error: 'AlertCircle' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+25:34  Error: 'isMuted' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+
+./src/components/visuals/VisualK
+8sScaling.tsx
+4:26  Error: 'Mic2' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+19:36  Error: 'isMuted' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+49:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'isScaling' and 
+'replicas'. Either include them 
+or remove the dependency array. 
+You can also replace multiple 
+useState variables with 
+useReducer if 'setScaleDir' 
+needs the current value of 
+'replicas'.  
+react-hooks/exhaustive-deps
+
+./src/components/visuals/VisualK
+itchen.tsx
+4:44  Error: 'ShoppingBasket' 
+is defined but never used.  @typ
+escript-eslint/no-unused-vars
+4:60  Error: 'BellRing' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+139:61  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+139:66  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, `&rdquo;`.  
+react/no-unescaped-entities
+
+./src/components/visuals/VisualS
+oftware.tsx
+6:34  Error: 'isMuted' is 
+assigned a value but never 
+used.  @typescript-eslint/no-unu
+sed-vars
+
+./src/components/visuals/VisualT
+iffin.tsx
+4:10  Error: 'Package' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+4:61  Error: 'Box' is defined 
+but never used.  @typescript-esl
+int/no-unused-vars
+4:66  Error: 'CheckCircle2' is 
+defined but never used.  @typesc
+ript-eslint/no-unused-vars
+136:100  Error: Unexpected any. 
+Specify a different type.  @type
+script-eslint/no-explicit-any
+
+info  - Need to disable some 
+ESLint rules? Learn more here: h
+ttps://nextjs.org/docs/basic-fea
+tures/eslint#disabling-rules
