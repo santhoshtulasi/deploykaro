@@ -141,6 +141,12 @@ export default function LandingPage() {
             <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
             <a href="#tracks" className="hover:text-white transition-colors">Tracks</a>
             <a href="#certifications" className="hover:text-white transition-colors">Certifications</a>
+            <a
+              href="/interview"
+              className="flex items-center gap-1.5 text-purple-400 hover:text-purple-300 font-bold transition-colors border border-purple-500/20 hover:border-purple-500/40 px-3 py-1 rounded-lg"
+            >
+              <Brain size={12} /> Interview Mode
+            </a>
           </div>
 
           <button

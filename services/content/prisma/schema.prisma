@@ -19,10 +19,10 @@ enum Language {
 }
 
 enum Persona {
-  BUDDY    // English
-  ANNA     // Tamil
-  BHAI     // Kannada
-  DIDI     // Telugu
+  BUDDY // English
+  ANNA // Tamil
+  BHAI // Kannada
+  DIDI // Telugu
 }
 
 enum Difficulty {
@@ -32,33 +32,34 @@ enum Difficulty {
 }
 
 enum SlangLevel {
-  LIGHT    // 1
-  MEDIUM   // 2
-  HEAVY    // 3
+  LIGHT // 1
+  MEDIUM // 2
+  HEAVY // 3
 }
 
 // ─── USER ────────────────────────────────────────────────────
 
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  cognitoId     String    @unique @map("cognito_id")
-  displayName   String?   @map("display_name")
-  avatarUrl     String?   @map("avatar_url")
-  language      Language  @default(ENGLISH)
-  persona       Persona   @default(BUDDY)
-  slangLevel    SlangLevel @default(MEDIUM) @map("slang_level")
-  expertMode    Boolean   @default(false) @map("expert_mode")
-  xp            Int       @default(0)
-  parentId      String?   @map("parent_id")
-  parent        User?     @relation("ParentChild", fields: [parentId], references: [id])
-  children      User[]    @relation("ParentChild")
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  id          String     @id @default(cuid())
+  email       String     @unique
+  cognitoId   String     @unique @map("cognito_id")
+  displayName String?    @map("display_name")
+  avatarUrl   String?    @map("avatar_url")
+  language    Language   @default(ENGLISH)
+  persona     Persona    @default(BUDDY)
+  slangLevel  SlangLevel @default(MEDIUM) @map("slang_level")
+  expertMode  Boolean    @default(false) @map("expert_mode")
+  xp          Int        @default(0)
+  parentId    String?    @map("parent_id")
+  parent      User?      @relation("ParentChild", fields: [parentId], references: [id])
+  children    User[]     @relation("ParentChild")
+  createdAt   DateTime   @default(now()) @map("created_at")
+  updatedAt   DateTime   @updatedAt @map("updated_at")
 
-  progress      Progress[]
-  achievements  UserAchievement[]
-  sessions      MentorSession[]
+  progress         Progress[]
+  achievements     UserAchievement[]
+  sessions         MentorSession[]
+  InterviewSession InterviewSession[]
 
   @@map("users")
 }
@@ -66,55 +67,55 @@ model User {
 // ─── TRACKS ──────────────────────────────────────────────────
 
 model Track {
-  id            String    @id @default(cuid())
-  slug          String    @unique
-  order         Int
-  durationHrs   Float     @map("duration_hrs")
-  difficulty    Difficulty @default(BEGINNER)
-  isPublished   Boolean   @default(false) @map("is_published")
+  id          String     @id @default(cuid())
+  slug        String     @unique
+  order       Int
+  durationHrs Float      @map("duration_hrs")
+  difficulty  Difficulty @default(BEGINNER)
+  isPublished Boolean    @default(false) @map("is_published")
 
-  titleEn       String    @map("title_en")
-  titleTa       String?   @map("title_ta")
-  titleKn       String?   @map("title_kn")
-  titleTe       String?   @map("title_te")
+  titleEn String  @map("title_en")
+  titleTa String? @map("title_ta")
+  titleKn String? @map("title_kn")
+  titleTe String? @map("title_te")
 
-  modules       Module[]
-  progress      Progress[]
-  achievement   Achievement?
+  modules     Module[]
+  progress    Progress[]
+  achievement Achievement?
 
   @@map("tracks")
 }
 
 model Module {
-  id            String    @id @default(cuid())
-  trackId       String    @map("track_id")
-  track         Track     @relation(fields: [trackId], references: [id])
-  order         Int
+  id      String @id @default(cuid())
+  trackId String @map("track_id")
+  track   Track  @relation(fields: [trackId], references: [id])
+  order   Int
 
-  titleEn       String    @map("title_en")
-  titleTa       String?   @map("title_ta")
-  titleKn       String?   @map("title_kn")
-  titleTe       String?   @map("title_te")
+  titleEn String  @map("title_en")
+  titleTa String? @map("title_ta")
+  titleKn String? @map("title_kn")
+  titleTe String? @map("title_te")
 
-  concepts      Concept[]
+  concepts Concept[]
 
   @@map("modules")
 }
 
 model Concept {
-  id            String    @id @default(cuid())
-  moduleId      String    @map("module_id")
-  module        Module    @relation(fields: [moduleId], references: [id])
-  order         Int
-  visualId      String?   @map("visual_id")
+  id       String  @id @default(cuid())
+  moduleId String  @map("module_id")
+  module   Module  @relation(fields: [moduleId], references: [id])
+  order    Int
+  visualId String? @map("visual_id")
 
-  titleEn       String    @map("title_en")
-  titleTa       String?   @map("title_ta")
-  titleKn       String?   @map("title_kn")
-  titleTe       String?   @map("title_te")
-  examDomains   String[]  @default([]) @map("exam_domains") // ["SAA: Domain 1", "CKA: Architecture"]
+  titleEn     String   @map("title_en")
+  titleTa     String?  @map("title_ta")
+  titleKn     String?  @map("title_kn")
+  titleTe     String?  @map("title_te")
+  examDomains String[] @default([]) @map("exam_domains") // ["SAA: Domain 1", "CKA: Architecture"]
 
-  content       Json      // Structured content: analogies, technical, hands-on
+  content Json // Structured content: analogies, technical, hands-on
 
   @@map("concepts")
 }
@@ -122,17 +123,17 @@ model Concept {
 // ─── PROGRESS ────────────────────────────────────────────────
 
 model Progress {
-  id                String    @id @default(cuid())
-  userId            String    @map("user_id")
-  user              User      @relation(fields: [userId], references: [id])
-  trackId           String    @map("track_id")
-  track             Track     @relation(fields: [trackId], references: [id])
-  completedPct      Float     @default(0) @map("completed_pct")
-  completedConcepts String[]  @map("completed_concepts")
-  lastConceptId     String?   @map("last_concept_id")
-  totalTimeSecs     Int       @default(0) @map("total_time_secs")
-  startedAt         DateTime  @default(now()) @map("started_at")
-  updatedAt         DateTime  @updatedAt @map("updated_at")
+  id                String   @id @default(cuid())
+  userId            String   @map("user_id")
+  user              User     @relation(fields: [userId], references: [id])
+  trackId           String   @map("track_id")
+  track             Track    @relation(fields: [trackId], references: [id])
+  completedPct      Float    @default(0) @map("completed_pct")
+  completedConcepts String[] @map("completed_concepts")
+  lastConceptId     String?  @map("last_concept_id")
+  totalTimeSecs     Int      @default(0) @map("total_time_secs")
+  startedAt         DateTime @default(now()) @map("started_at")
+  updatedAt         DateTime @updatedAt @map("updated_at")
 
   @@unique([userId, trackId])
   @@map("progress")
@@ -141,26 +142,26 @@ model Progress {
 // ─── ACHIEVEMENTS ─────────────────────────────────────────────
 
 model Achievement {
-  id            String    @id @default(cuid())
-  slug          String    @unique
-  trackId       String?   @unique @map("track_id")
-  track         Track?    @relation(fields: [trackId], references: [id])
-  badgeUrl      String    @map("badge_url")
+  id       String  @id @default(cuid())
+  slug     String  @unique
+  trackId  String? @unique @map("track_id")
+  track    Track?  @relation(fields: [trackId], references: [id])
+  badgeUrl String  @map("badge_url")
 
-  titleEn       String    @map("title_en")
-  descriptionEn String    @map("description_en")
+  titleEn       String @map("title_en")
+  descriptionEn String @map("description_en")
 
-  users         UserAchievement[]
+  users UserAchievement[]
 
   @@map("achievements")
 }
 
 model UserAchievement {
-  userId        String    @map("user_id")
-  achievementId String    @map("achievement_id")
-  user          User      @relation(fields: [userId], references: [id])
+  userId        String      @map("user_id")
+  achievementId String      @map("achievement_id")
+  user          User        @relation(fields: [userId], references: [id])
   achievement   Achievement @relation(fields: [achievementId], references: [id])
-  earnedAt      DateTime  @default(now()) @map("earned_at")
+  earnedAt      DateTime    @default(now()) @map("earned_at")
 
   @@id([userId, achievementId])
   @@map("user_achievements")
@@ -169,13 +170,52 @@ model UserAchievement {
 // ─── MENTOR SESSIONS ──────────────────────────────────────────
 
 model MentorSession {
-  id            String    @id @default(cuid())
-  userId        String    @map("user_id")
-  user          User      @relation(fields: [userId], references: [id])
-  persona       Persona
-  messageCount  Int       @default(0) @map("message_count")
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
+  id           String   @id @default(cuid())
+  userId       String   @map("user_id")
+  user         User     @relation(fields: [userId], references: [id])
+  persona      Persona
+  messageCount Int      @default(0) @map("message_count")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
 
   @@map("mentor_sessions")
 }
+
+model InterviewSession {
+  id          String            @id @default(cuid())
+  userId      String            @map("user_id")
+  user        User              @relation(fields: [userId], references: [id])
+  mode        String // "interview"
+  durationMin Int // 30 or 60
+  startTime   DateTime          @default(now())
+  endTime     DateTime?
+  answers     InterviewAnswer[] @relation(name: "SessionAnswers")
+
+  @@map("interview_sessions")
+}
+
+model InterviewQuestion {
+  id         Int               @id @default(autoincrement())
+  question   String
+  difficulty String // easy, medium, hard
+  category   String
+  source     String?
+  answers    InterviewAnswer[] @relation(name: "QuestionAnswers")
+
+  @@map("interview_questions")
+}
+
+model InterviewAnswer {
+  id            String            @id @default(cuid())
+  sessionId     String            @map("session_id")
+  session       InterviewSession  @relation(name: "SessionAnswers", fields: [sessionId], references: [id])
+  questionId    Int               @map("question_id")
+  question      InterviewQuestion @relation(name: "QuestionAnswers", fields: [questionId], references: [id])
+  answerText    String?
+  debriefRating String? // ✅, 🟡, ❌
+  createdAt     DateTime          @default(now())
+
+  @@map("interview_answers")
+}
+
+// Duplicate interview models removed

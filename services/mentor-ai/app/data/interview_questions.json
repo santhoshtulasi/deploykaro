@@ -1,0 +1,353 @@
+[
+  {
+    "id": 1,
+    "question": "What is MLOps? How is it different from DevOps?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 2,
+    "question": "Why do we need MLOps?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 3,
+    "question": "How does MLOps extend DevOps principles?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 4,
+    "question": "Difference between SDLC and MLOps lifecycle?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 5,
+    "question": "What are the stages of the ML lifecycle?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 6,
+    "question": "What are the key components of an MLOps pipeline?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 7,
+    "question": "Explain CI/CD in MLOps.",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 8,
+    "question": "What is Continuous Training (CT)?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 9,
+    "question": "What is model training vs inference?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 10,
+    "question": "What is batch vs real-time inference?",
+    "difficulty": "easy",
+    "category": "MLOps Fundamentals",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 11,
+    "question": "How do you design an end-to-end ML pipeline?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 12,
+    "question": "How do you automate model training and deployment?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 13,
+    "question": "How would you implement CI/CD for ML models?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 14,
+    "question": "What challenges arise in CI/CD for ML vs traditional apps?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 15,
+    "question": "How do you handle rollback for ML models?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 16,
+    "question": "How do you ensure reproducibility in pipelines?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 17,
+    "question": "How do you orchestrate pipelines (Airflow, Kubeflow, etc.)?",
+    "difficulty": "medium",
+    "category": "Pipelines, CI/CD & Automation",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 18,
+    "question": "What tools are used in MLOps workflows?",
+    "difficulty": "easy",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 19,
+    "question": "How do you use MLflow in a pipeline?",
+    "difficulty": "medium",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 20,
+    "question": "What is DVC and how does it work?",
+    "difficulty": "medium",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 21,
+    "question": "Explain .dvc file and data versioning.",
+    "difficulty": "medium",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 22,
+    "question": "How do you containerize ML models?",
+    "difficulty": "medium",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 23,
+    "question": "How do you deploy models on Kubernetes?",
+    "difficulty": "medium",
+    "category": "Tools & Ecosystem",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 24,
+    "question": "What is data versioning? Why is it important?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 25,
+    "question": "How do you version datasets?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 26,
+    "question": "How do you ensure reproducibility of experiments?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 27,
+    "question": "What is training‑serving skew?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 28,
+    "question": "What is data leakage?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 29,
+    "question": "What happens when you run dvc add data.csv?",
+    "difficulty": "easy",
+    "category": "Data, Versioning & Reproducibility",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 30,
+    "question": "What is model drift vs data drift?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 31,
+    "question": "How do you detect drift?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 32,
+    "question": "How do you monitor ML models in production?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 33,
+    "question": "What metrics do you track for a production model?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 34,
+    "question": "What happens if model performance degrades?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 35,
+    "question": "How do you handle failed pipelines?",
+    "difficulty": "easy",
+    "category": "Monitoring, Drift & Production Issues",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 36,
+    "question": "Explain blue‑green deployment for ML.",
+    "difficulty": "medium",
+    "category": "Deployment Strategies",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 37,
+    "question": "What is canary deployment?",
+    "difficulty": "medium",
+    "category": "Deployment Strategies",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 38,
+    "question": "What is shadow deployment?",
+    "difficulty": "medium",
+    "category": "Deployment Strategies",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 39,
+    "question": "How do you deploy models safely?",
+    "difficulty": "medium",
+    "category": "Deployment Strategies",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 40,
+    "question": "How do you handle rollback in ML deployments?",
+    "difficulty": "medium",
+    "category": "Deployment Strategies",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 41,
+    "question": "Design an end‑to‑end ML system.",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 42,
+    "question": "How would you build an ML platform for data scientists?",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 43,
+    "question": "How do you scale inference across GPUs?",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 44,
+    "question": "How do you handle large‑scale training jobs?",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 45,
+    "question": "How would you debug a failing training pipeline?",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 46,
+    "question": "Design a real‑time recommendation system pipeline.",
+    "difficulty": "hard",
+    "category": "System Design / Scenario‑Based",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 47,
+    "question": "What is overfitting?",
+    "difficulty": "easy",
+    "category": "ML Concepts",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 48,
+    "question": "Explain bias‑variance tradeoff.",
+    "difficulty": "easy",
+    "category": "ML Concepts",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 49,
+    "question": "What is model evaluation?",
+    "difficulty": "easy",
+    "category": "ML Concepts",
+    "source": "Compiled from multiple LinkedIn posts"
+  },
+  {
+    "id": 50,
+    "question": "What is feature engineering?",
+    "difficulty": "easy",
+    "category": "ML Concepts",
+    "source": "Compiled from multiple LinkedIn posts"
+  }
+  // ... (additional entries up to ~320) ...
+]
