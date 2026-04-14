@@ -20,8 +20,6 @@ function getKey(header: jwt.JwtHeader, callback: jwt.SigningKeyCallback) {
 }
 
 export function verifyToken(req: RequestWithUser, res: Response, next: NextFunction) {
-
-
   const authHeader = req.headers.authorization;
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     res.status(401).json({ error: { code: "UNAUTHORIZED", message: "Missing or invalid Authorization header." } });
@@ -30,15 +28,20 @@ export function verifyToken(req: RequestWithUser, res: Response, next: NextFunct
 
   const token = authHeader.split(" ")[1];
 
-  jwt.verify(token, getKey, { algorithms: ["RS256"] }, (err, decoded) => {
-    if (err) {
-      res.status(401).json({ error: { code: "INVALID_TOKEN", message: "Token verification failed." } });
-      return;
-    }
+  jwt.verify(
+    token,
+    getKey,
+    { algorithms: ["RS256"], clockTolerance: 120 }, // 2-minute leeway for WSL2 clock drift
+    (err, decoded) => {
+      if (err) {
+        console.error("[Auth] JWT verification failed:", err.message);
+        res.status(401).json({ error: { code: "INVALID_TOKEN", message: "Token verification failed." } });
+        return;
+      }
 
-    const payload = decoded as jwt.JwtPayload;
-    // Keycloak uses "sub" as the unique user ID — mirrors Cognito sub
-    req.user = { sub: payload.sub as string, email: payload.email as string };
-    next();
-  });
+      const payload = decoded as jwt.JwtPayload;
+      req.user = { sub: payload.sub as string, email: payload.email as string };
+      next();
+    }
+  );
 }

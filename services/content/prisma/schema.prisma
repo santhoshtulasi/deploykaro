@@ -60,6 +60,7 @@ model User {
   achievements     UserAchievement[]
   sessions         MentorSession[]
   InterviewSession InterviewSession[]
+  learningPlans    LearningPlan[]
 
   @@map("users")
 }
@@ -182,14 +183,16 @@ model MentorSession {
 }
 
 model InterviewSession {
-  id          String            @id @default(cuid())
-  userId      String            @map("user_id")
-  user        User              @relation(fields: [userId], references: [id])
-  mode        String // "interview"
-  durationMin Int // 30 or 60
-  startTime   DateTime          @default(now())
-  endTime     DateTime?
-  answers     InterviewAnswer[] @relation(name: "SessionAnswers")
+  id              String            @id @default(cuid())
+  userId          String            @map("user_id")
+  user            User              @relation(fields: [userId], references: [id])
+  mode            String            // "interview"
+  domain          String            @default("DevOps") // "DevOps" | "MLOps"
+  experienceLevel String            @default("intermediate") @map("experience_level") // beginner, intermediate, senior
+  durationMin     Int               @map("duration_min") // 10, 30, 60
+  startTime       DateTime          @default(now()) @map("start_time")
+  endTime         DateTime?         @map("end_time")
+  answers         InterviewAnswer[] @relation(name: "SessionAnswers")
 
   @@map("interview_sessions")
 }
@@ -197,8 +200,9 @@ model InterviewSession {
 model InterviewQuestion {
   id         Int               @id @default(autoincrement())
   question   String
-  difficulty String // easy, medium, hard
+  difficulty String            // easy, medium, hard
   category   String
+  domain     String            @default("DevOps") // "DevOps" | "MLOps"
   source     String?
   answers    InterviewAnswer[] @relation(name: "QuestionAnswers")
 
@@ -218,4 +222,37 @@ model InterviewAnswer {
   @@map("interview_answers")
 }
 
-// Duplicate interview models removed
+// ─── LEARNING PLANS (AI GENERATED) ────────────────────────────
+
+model LearningPlan {
+  id                  String             @id @default(cuid())
+  userId              String             @map("user_id")
+  user                User               @relation(fields: [userId], references: [id])
+  appType             String             @map("app_type")
+  cloudProvider       String             @map("cloud_provider")
+  tools               String[]
+  projectTitle        String             @map("project_title")
+  architectureSummary String             @map("architecture_summary")
+  completedSteps      Int[]              @default([]) @map("completed_steps")
+  repoUrl             String?            @map("repo_url")
+  createdAt           DateTime           @default(now()) @map("created_at")
+  lastAccessed        DateTime           @default(now()) @map("last_accessed")
+  
+  steps               LearningPlanStep[]
+
+  @@map("learning_plans")
+}
+
+model LearningPlanStep {
+  id                String       @id @default(cuid())
+  planId            String       @map("plan_id")
+  plan              LearningPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  stepNumber        Int          @map("step_number")
+  title             String
+  description       String
+  actionableCommand String?      @map("actionable_command")
+  toolsUsed         String[]     @map("tools_used")
+  jargonTerms       Json         @default("[]") @map("jargon_terms")
+
+  @@map("learning_plan_steps")
+}

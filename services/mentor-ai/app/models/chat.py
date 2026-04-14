@@ -8,6 +8,7 @@ class ChatContext(BaseModel):
     active_track_slug: str = "my-first-deploy"
     certification: Optional[str] = "AWS Cloud Practitioner"
     mentor_mode: str = "learning" # learning, certification, interview
+    step_context: Optional[dict] = None
 
 class ChatMessage(BaseModel):
     role: str

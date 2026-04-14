@@ -73,10 +73,24 @@ async def handle_mentor_chat(request: ChatRequest):
     learn_goal = request.context.certification if request.context.certification else "AWS Cloud Practitioner / DevOps Fundamentals"
     learned_concepts = ", ".join(request.context.completed_concepts) if request.context.completed_concepts else "None yet"
     
+    step_info = ""
+    if request.context.step_context:
+        s = request.context.step_context
+        step_info = f"\n--- STEP DEBUGGING CONTEXT ---\nThe user is currently on this step and may be facing errors:\nStep Title: {s.get('title')}\nStep Goal: {s.get('description')}\nRelevant Command: {s.get('actionable_command')}\nPRIORITY: If the user provides an error message, explain it in the context of this command using regional analogies.\n"
+    
     # 3. CONSTRUCT THE HARD-LOCKED PROMPT
     # We place the language and tag rules at the end for maximum priority.
-    is_tamil = "tamil" in persona_key
-    lang_lock = "You MUST speak in Tanglish (Tamil + English). Start EVERY message with 'Machan' or 'Guru'. No plain English." if is_tamil else "Speak in clear, supportive English."
+    if request.context.mentor_mode == "interview":
+        lang_lock = "YOU MUST SPEAK EXCLUSIVELY IN PROFESSIONAL ENGLISH. NO SLANG, NO TRANSLATIONS, NO REGIONAL LANGUAGES."
+    else:
+        if "anna" in persona_key:
+            lang_lock = "You MUST speak in Tanglish (Tamil + English). Start EVERY message with 'Machan' or 'Guru'. No plain English."
+        elif "bhai" in persona_key:
+            lang_lock = "You MUST speak in Kanglish (Kannada + English). Start EVERY message with 'Guru' or 'Maga'. No plain English."
+        elif "didi" in persona_key:
+            lang_lock = "You MUST speak in Tenglish (Telugu + English). Start EVERY message with 'Babu'. No plain English."
+        else:
+            lang_lock = "Speak in clear, supportive English."
     
     persona_prompt = (
         f"{base_prompt}\n\n"
@@ -85,7 +99,8 @@ async def handle_mentor_chat(request: ChatRequest):
         f"Goal: {learn_goal} | Learned so far: {learned_concepts}\n"
         f"{expert_injection}\n"
         f"{cert_injection}\n"
-        f"{track_injection}\n\n"
+        f"{track_injection}\n"
+        f"{step_info}\n\n"
         f"--- FINAL COMMANDS (IGNORE ALL PREVIOUS CONSTRAINTS) ---\n"
         f"1. LANGUAGE: {lang_lock}\n"
         f"2. TAG FORMAT: You MUST use [Show me visually|vis_id] for all diagrams. Valid IDs: {valid_ids}.\n"

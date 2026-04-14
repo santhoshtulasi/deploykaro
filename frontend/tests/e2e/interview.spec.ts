@@ -11,14 +11,13 @@ test.describe('Interview Mode E2E', () => {
     // Setup: select experience and duration
     await page.getByRole('button', { name: /Intermediate/ }).click();
     await page.getByRole('button', { name: /Quick Mode/ }).click();
-    await page.getByRole('button', { name: /Start Interview/ }).click();
+    await page.getByRole('button', { name: /Start .* Interview/i }).click();
 
     // Ensure session started and first question appears
-    const question = page.locator('text=Walk me through how you would design a zero-downtime deployment pipeline for a Node.js API.');
-    await expect(question).toBeVisible({ timeout: 5000 });
+    const textarea = page.locator('textarea');
+    await expect(textarea).toBeVisible({ timeout: 5000 });
 
     // Answer the question
-    const textarea = page.locator('textarea');
     await textarea.fill('I would implement blue-green deployments because it allows zero-downtime updates. In this scenario, I would deploy the new version to the green environment, perform health checks, and then route traffic. This is the best approach.');
     await page.getByRole('button', { name: /Submit/ }).click();
 

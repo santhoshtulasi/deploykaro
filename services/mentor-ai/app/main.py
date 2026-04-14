@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load the secret keys from the root folder
 load_dotenv(dotenv_path="../../.env.local", override=True)
 
-from app.routers import mentor, interview
+from app.routers import mentor, interview, learning
 
 app = FastAPI(
     title="DeployKaro AI Mentor 🧠",
@@ -26,6 +26,7 @@ app.add_middleware(
 # Register the new AI logic!
 app.include_router(mentor.router)
 app.include_router(interview.router)
+app.include_router(learning.router)
 
 # A simple response when someone hits Port 8000
 @app.get("/")

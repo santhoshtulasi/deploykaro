@@ -15,8 +15,7 @@ export function ChatInput({ onSendMessage, isLoading, activeMode, onModeChange }
 
   const modes = [
     { id: "learning", label: "🎓 Learn", color: "text-emerald-500", bg: "bg-emerald-500/10" },
-    { id: "certification", label: "🏆 Cert Prep", color: "text-amber-500", bg: "bg-amber-500/10" },
-    { id: "interview", label: "💼 Interview", color: "text-sky-500", bg: "bg-sky-500/10" }
+    { id: "certification", label: "🏆 Cert Prep", color: "text-amber-500", bg: "bg-amber-500/10" }
   ];
 
   // Auto-resize logic...
@@ -92,23 +91,6 @@ export function ChatInput({ onSendMessage, isLoading, activeMode, onModeChange }
                 </button>
             ))}
         </div>
-
-        <button 
-            onClick={() => {
-                if (activeMode === "interview") {
-                    onModeChange("learning");
-                } else {
-                    onSendMessage("I'm ready for a Mock Interview! Please start the session.", "interview");
-                }
-            }}
-            className={`text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg border transition-all flex items-center gap-2 ${
-                activeMode === "interview"
-                ? "bg-red-500/10 border-red-500/50 text-red-500 hover:bg-red-500/20"
-                : "bg-sky-500/5 border-sky-500/30 text-sky-400 hover:bg-sky-500/20"
-            }`}
-        >
-            <Briefcase size={12} /> {activeMode === "interview" ? "Exit Mock" : "Start Mock"}
-        </button>
       </div>
 
       <div className="max-w-4xl mx-auto flex gap-3 relative items-end">
@@ -119,9 +101,7 @@ export function ChatInput({ onSendMessage, isLoading, activeMode, onModeChange }
           onKeyDown={handleKeyDown}
           disabled={isLoading}
           placeholder={
-            activeMode === "interview" 
-            ? "Ready for a mock interview? Type 'Start' to begin..." 
-            : activeMode === "certification" 
+            activeMode === "certification" 
             ? "Ask about AWS SAA or CKA exam topics..." 
             : "Ask ANNA to explain any concept simply..."
           }
